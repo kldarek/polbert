@@ -1,2 +1,3 @@
-# polbert
+# PolBERT
 Polish BERT
+
