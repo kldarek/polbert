@@ -1,11 +1,11 @@
 # Polbert - Polish BERT
-Description here... intended uses & limitations, etc.
+Polish version of BERT language model is here! While this is still work in progress, I'm happy to share the first model, similar to a BERT-Base and trained on a large Polish corpus. If you'd like to contribute to this project, please reach out to me!
 
 ![PolBERT image](/img/polbert.png)
 
 ## Pre-training corpora
 
-Below is the list of corpora used along with the output of 'wc' command (counting lines, words and characters). These corpora were divided into sentences with srxsegmenter (see references), concatenated and tokenized with HuggingFace BERT Tokenizer. 
+Below is the list of corpora used along with the output of `wc` command (counting lines, words and characters). These corpora were divided into sentences with srxsegmenter (see references), concatenated and tokenized with HuggingFace BERT Tokenizer. 
 
 | Tables        | Lines           | Words  | Characters  |
 | ------------- |--------------:| -----:| -----:|
@@ -22,10 +22,25 @@ Below is the list of corpora used along with the output of 'wc' command (countin
 * The model was trained on a single Google Cloud TPU v3-8 
 
 ## Usage
+Polbert is released via [HuggingFace Transformers library](https://huggingface.co/transformers/).
+```python
+from transformers import AutoTokenizer, AutoModel
 
+tokenizer = AutoTokenizer.from_pretrained("dkleczek/bert-base-polish-uncased-v1")
+model = AutoModel.from_pretrained("dkleczek/bert-base-polish-uncased-v1")
+```
+
+See the next section for an example usage of Polbert in downstream tasks. 
 
 ## Evaluation
-evaluation results, 
+I'd love to get some help from the Polish NLP community here! If you feel like evaluating Polbert on some benchmark tasks, it would be great if you can share the results. 
+
+So far, I've compared the performance of Polbert vs Multilingual BERT on PolEmo 2.0 sentiment classification, here are the results. These results are produced via *polemo_eval.py* script in the project repo. 
+
+| PolEmo 2.0 Sentiment Classifcation | Test Accuracy | 
+| ------------- |--------------:|
+| Multilingual BERT | 0.8158 |
+| Polbert | TBD |
 
 ## Bias
 The data used to train the model is biased. It may reflect stereotypes related to gender, ethnicity etc. Please be careful when using the model for downstream task to consider these biases and mitigate them.  
@@ -40,5 +55,5 @@ Dariusz Kłeczek (a.k.a. Darek)
 * https://github.com/google-research/bert
 * https://github.com/narusemotoki/srx_segmenter
 * SRX rules file for sentence splitting in Polish, written by Marcin Miłkowski: https://raw.githubusercontent.com/languagetool-org/languagetool/master/languagetool-core/src/main/resources/org/languagetool/resource/segment.srx
-
+* PolEmo 2.0 Sentiment Analysis Dataset for CoNLL: https://clarin-pl.eu/dspace/handle/11321/710
 
