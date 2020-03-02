@@ -1,9 +1,9 @@
 # Polbert - Polish BERT
-Description here...
+Description here... intended uses & limitations, etc.
 
 ![PolBERT image](/img/polbert.png)
 
-#Pre-training corpora
+##Pre-training corpora
 
 Below is the list of corpora used along with the output of 'wc' command (counting lines, words and characters). These corpora were divided into sentences with srxsegmenter (see references), concatenated and tokenized with HuggingFace BERT Tokenizer. 
 
@@ -15,24 +15,22 @@ Below is the list of corpora used along with the output of 'wc' command (countin
 | Polish Wikipedia | 8014206      |    132067986 | 1015849191 |
 | Total | 262920423      |    1861093257 | 10746349159 |
 
-#Pre-training details
+##Pre-training details
+training params (dataset, preprocessing, hyperparameters), 
 
-#Usage
+##Usage
 
-#Evaluation
+##Evaluation
+evaluation results, 
 
-#Bias
+##Bias
 
-#Acknowledgements
-Tino etc.
+##Acknowledgements
+Tino etc., Google TFRC
 
-#Author
+##Author
 
-#References
-...
-
-
-
-
-
-model description, training params (dataset, preprocessing, hyperparameters), evaluation results, intended uses & limitations, etc.
+##References
+Bert
+Srx 1
+Srx 2
