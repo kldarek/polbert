@@ -1,5 +1,5 @@
 # Polbert - Polish BERT
-Polish version of BERT language model is here! While this is still work in progress, I'm happy to share the first model, similar to a BERT-Base and trained on a large Polish corpus. If you'd like to contribute to this project, please reach out to me!
+Polish version of BERT language model is here! While this is still work in progress, I'm happy to share the first model, similar to BERT-Base and trained on a large Polish corpus. If you'd like to contribute to this project, please reach out to me!
 
 ![PolBERT image](/img/polbert.png)
 
