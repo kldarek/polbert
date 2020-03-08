@@ -18,7 +18,10 @@ Below is the list of corpora used along with the output of `wc` command (countin
 ## Pre-training details
 * Polbert was trained with code provided in Google BERT's github repository (https://github.com/google-research/bert)
 * Currently released model follows bert-base-uncased model architecture (12-layer, 768-hidden, 12-heads, 110M parameters)
-* Training set-up: 1 million training steps with batches of 256 sequences of length 512 with an initial learning rate 1e-4
+* Training set-up: in total 1 million training steps: 
+    * 100.000 steps - 128 sequence length, batch size 512, learning rate 1e-4 (10.000 steps warmup)
+    * 800.000 steps - 128 sequence length, batch size 512, learning rate 5e-5
+    * 100.000 steps - 512 sequence length, batch size 256, learning rate 2e-5
 * The model was trained on a single Google Cloud TPU v3-8 
 
 ## Usage
@@ -35,12 +38,12 @@ See the next section for an example usage of Polbert in downstream tasks.
 ## Evaluation
 I'd love to get some help from the Polish NLP community here! If you feel like evaluating Polbert on some benchmark tasks, it would be great if you can share the results. 
 
-So far, I've compared the performance of Polbert vs Multilingual BERT on PolEmo 2.0 sentiment classification, here are the results. These results are produced via *polemo_eval.py* script in the project repo. 
+So far, I've compared the performance of Polbert vs Multilingual BERT on PolEmo 2.0 sentiment classification, here are the results. These results are are produced with a linear classification layer on top of pooled output, trained for 10 epochs with learning rate 3e-5. The checkpoint with the lowest loss on validation set is evaluated on the test set. 
 
 | PolEmo 2.0 Sentiment Classifcation | Test Accuracy | 
 | ------------- |--------------:|
-| Multilingual BERT | 0.8158 |
-| Polbert | TBD |
+| Multilingual BERT | 0.78 |
+| Polbert | 0.85 |
 
 ## Bias
 The data used to train the model is biased. It may reflect stereotypes related to gender, ethnicity etc. Please be careful when using the model for downstream task to consider these biases and mitigate them.  
