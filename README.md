@@ -26,11 +26,30 @@ Below is the list of corpora used along with the output of `wc` command (countin
 
 ## Usage
 Polbert is released via [HuggingFace Transformers library](https://huggingface.co/transformers/).
-```python
-from transformers import AutoTokenizer, AutoModel
 
-tokenizer = AutoTokenizer.from_pretrained("dkleczek/bert-base-polish-uncased-v1")
-model = AutoModel.from_pretrained("dkleczek/bert-base-polish-uncased-v1")
+For an example use as language model, see LM_testing.ipynb file. 
+
+```python
+import numpy as np
+import torch
+import transformers as ppb
+
+tokenizer = ppb.BertTokenizer.from_pretrained('dkleczek/bert-base-polish-uncased-v1')
+bert_model = ppb.BertForMaskedLM.from_pretrained('dkleczek/bert-base-polish-uncased-v1') 
+string1 = 'Adam mickiewicz wielkim polskim [MASK] był .'
+indices = tokenizer.encode(string1, add_special_tokens=True)
+masked_token = np.argwhere(np.array(indices) == 3).flatten()[0] # 3 is the vocab id for [MASK] token
+input_ids = torch.tensor([indices])
+with torch.no_grad():
+    last_hidden_states = bert_model(input_ids)[0]
+more_words = np.argsort(np.asarray(last_hidden_states[0,masked_token,:]))[-4:]
+print(more_words)
+
+# Output: 
+# poeta
+# bohaterem
+# człowiekiem
+# pisarzem
 ```
 
 See the next section for an example usage of Polbert in downstream tasks. 
