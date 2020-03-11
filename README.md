@@ -71,7 +71,7 @@ The data used to train the model is biased. It may reflect stereotypes related t
 I'd like to express my gratitude to Google [TensorFlow Research Cloud (TFRC)](https://www.tensorflow.org/tfrc) for providing the free TPU credits - thank you! Also appreciate the help from Timo Möller from [deepset](https://deepset.ai) for sharing tips and scripts based on their experience training German BERT model. Finally, thanks to Rachel Thomas, Jeremy Howard and Sylvain Gugger from [fastai](https://www.fast.ai) for their NLP and Deep Learning courses!
 
 ## Author
-Dariusz Kłeczek (a.k.a. Darek)
+Darek Kłeczek - contact me on Twitter [@dk21](https://twitter.com/dk21)
 
 ## References
 * https://github.com/google-research/bert
