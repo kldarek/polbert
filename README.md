@@ -27,7 +27,7 @@ Below is the list of corpora used along with the output of `wc` command (countin
 ## Usage
 Polbert is released via [HuggingFace Transformers library](https://huggingface.co/transformers/).
 
-For an example use as language model, see LM_testing.ipynb file. 
+For an example use as language model, see [this notebook](/LM_testing.ipynb) file. 
 
 ```python
 import numpy as np
