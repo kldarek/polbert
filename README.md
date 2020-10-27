@@ -123,10 +123,21 @@ The data used to train the model is biased. It may reflect stereotypes related t
 ## Author
 Darek Kłeczek - contact me on Twitter [@dk21](https://twitter.com/dk21)
 
+## Citation
+```
+@inproceedings{Kleczek2020,
+  author = {Dariusz Kłeczek},
+  title = {Polbert: Attacking Polish NLP Tasks with Transformers},
+  booktitle = {Proceedings of the PolEval 2020 Workshop},
+  year = {2020},
+  editor = {Maciej Ogrodniczuk and Łukasz Kobyliński},
+  publisher = {Institute of Computer Science, Polish Academy of Sciences},
+ }
+ ```
+
 ## References
+* [Polbert article](http://poleval.pl/files/poleval2020.pdf#page=79)
 * https://github.com/google-research/bert
 * https://github.com/narusemotoki/srx_segmenter
 * SRX rules file for sentence splitting in Polish, written by Marcin Miłkowski: https://raw.githubusercontent.com/languagetool-org/languagetool/master/languagetool-core/src/main/resources/org/languagetool/resource/segment.srx
 * [KLEJ benchmark](https://klejbenchmark.com/leaderboard/)
-
-
